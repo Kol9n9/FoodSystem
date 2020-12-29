@@ -1,0 +1,23 @@
+#include <windows.h>
+#include "ResID.h"
+MainMenu MENU
+{
+    MENUITEM "&Статистика", MainMenuStats
+    MENUITEM "&Пересчитать", MainMenuStatsRebuild
+    POPUP "&Пользователи"
+    {
+        MENUITEM "Добавить", MainMenuUserAdd
+        MENUITEM "Редактировать", MainMenuUserEdit
+        MENUITEM "Удалить", MainMenuUserDelete
+        MENUITEM SEPARATOR
+        MENUITEM "Посмотреть", MainMenuUserView
+    }
+    POPUP "&Классы"
+    {
+        MENUITEM "Добавить", MainMenuClassAdd
+        MENUITEM "Редактировать", MainMenuClassEdit
+        MENUITEM "Удалить", MainMenuClassDelete
+        MENUITEM SEPARATOR
+        MENUITEM "Посмотреть", MainMenuClassView
+    }
+}
