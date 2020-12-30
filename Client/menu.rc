@@ -1,16 +1,44 @@
 #include <windows.h>
 #include "ResID.h"
-MainMenu MENU
+MainMenu1 MENU
 {
     MENUITEM "&Статистика", MainMenuStats
-    MENUITEM "&Пересчитать", MainMenuStatsRebuild
+}
+MainMenu2 MENU
+{
+    MENUITEM "&Статистика", MainMenuStats
+    POPUP "&Питание"
+    {
+        MENUITEM "Заполнить", MainMenuFoodAdd
+        MENUITEM SEPARATOR
+        MENUITEM "Просмотреть", MainMenuFoodView
+    }
+    POPUP "&Цены"
+    {
+        MENUITEM "Просмотреть", MainMenuPriceView
+    }
+}
+MainMenu3 MENU
+{
+    POPUP "&Цены"
+    {
+        MENUITEM "Добавить", MainMenuPriceAdd
+        MENUITEM "Редактировать", MainMenuPriceEdit
+        MENUITEM SEPARATOR
+        MENUITEM "Просмотреть", MainMenuPriceView
+    }
+}
+
+MainMenu4 MENU
+{
+    MENUITEM "&Статистика", MainMenuStats
     POPUP "&Пользователи"
     {
         MENUITEM "Добавить", MainMenuUserAdd
         MENUITEM "Редактировать", MainMenuUserEdit
         MENUITEM "Удалить", MainMenuUserDelete
         MENUITEM SEPARATOR
-        MENUITEM "Посмотреть", MainMenuUserView
+        MENUITEM "Просмотреть", MainMenuUserView
     }
     POPUP "&Классы"
     {
@@ -18,6 +46,6 @@ MainMenu MENU
         MENUITEM "Редактировать", MainMenuClassEdit
         MENUITEM "Удалить", MainMenuClassDelete
         MENUITEM SEPARATOR
-        MENUITEM "Посмотреть", MainMenuClassView
+        MENUITEM "Просмотреть", MainMenuClassView
     }
 }

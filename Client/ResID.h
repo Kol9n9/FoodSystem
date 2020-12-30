@@ -14,7 +14,11 @@
 #define MainMenuClassDelete 8
 #define MainMenuClassView 9
 
-#define MainMenuStatsRebuild 10
+#define MainMenuFoodAdd 10
+#define MainMenuFoodView 11
 
+#define MainMenuPriceAdd 12
+#define MainMenuPriceEdit 13
+#define MainMenuPriceView 14
 
 #endif // RESID_H
