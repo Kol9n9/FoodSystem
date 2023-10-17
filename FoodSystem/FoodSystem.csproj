@@ -21,4 +21,12 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Pages\Price\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodSystem.Controlls\FoodSystem.Controlls.csproj" />
+  </ItemGroup>
+
 </Project>

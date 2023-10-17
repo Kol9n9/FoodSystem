@@ -3,22 +3,33 @@
                     xmlns:vm="clr-namespace:FoodSystem.ViewModels"
                     xmlns:userVm="clr-namespace:FoodSystem.ViewModels.User"
                     xmlns:classroomVm="clr-namespace:FoodSystem.ViewModels.Classroom"
+                    xmlns:studentVm="clr-namespace:FoodSystem.ViewModels.Student"
                     xmlns:view="clr-namespace:FoodSystem.Views.Pages"
                     xmlns:userView="clr-namespace:FoodSystem.Views.Pages.User"
-                    xmlns:classroomView="clr-namespace:FoodSystem.Views.Pages.Classroom">
+                    xmlns:classroomView="clr-namespace:FoodSystem.Views.Pages.Classroom"
+                    xmlns:studentView="clr-namespace:FoodSystem.Views.Pages.Student">
     <DataTemplate DataType="{x:Type vm:AboutViewModel}">
         <view:AboutPage/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type userVm:UserViewModel}">
         <userView:UserPage/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type userVm:UserEditViewModel}">
         <userView:UserEditPage/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type classroomVm:ClassroomViewModel}">
         <classroomView:ClassroomPage/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type classroomVm:ClassroomEditViewModel}">
         <classroomView:ClassroomEditPage/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type studentVm:StudentViewModel}">
+        <studentView:StudentPage/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type studentVm:StudentEditViewModel}">
+        <studentView:StudentEditPage/>
     </DataTemplate>
 </ResourceDictionary>

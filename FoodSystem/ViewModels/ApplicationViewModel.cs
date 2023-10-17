@@ -1,6 +1,7 @@
 ﻿using FoodSystem.Services;
 using FoodSystem.ViewModels.Base;
 using FoodSystem.ViewModels.Classroom;
+using FoodSystem.ViewModels.Student;
 using FoodSystem.ViewModels.User;
 using System.Windows.Input;
 
@@ -45,6 +46,7 @@ namespace FoodSystem.ViewModels
                         "AboutPage" => new AboutViewModel(NavigationService),
                         "UserPage" => new UserViewModel(NavigationService),
                         "ClassroomPage" => new ClassroomViewModel(NavigationService),
+                        "StudentPage" => new StudentViewModel(NavigationService),
                         _ => null
                     }; ;
 

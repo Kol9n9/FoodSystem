@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FoodSystem.Views.Pages
+namespace FoodSystem.Views.Pages.Student
 {
     /// <summary>
-    /// Логика взаимодействия для Classroom.xaml
+    /// Логика взаимодействия для StudentPage.xaml
     /// </summary>
-    public partial class ClassroomPage : UserControl
+    public partial class StudentPage : UserControl
     {
-        public ClassroomPage()
+        public StudentPage()
         {
             InitializeComponent();
         }
