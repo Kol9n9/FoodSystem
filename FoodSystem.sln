@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodSystem", "FoodSystem\FoodSystem.csproj", "{0E250E57-F914-442F-8832-3699372991A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSystem.Controlls", "FoodSystem.Controlls\FoodSystem.Controlls.csproj", "{0AE82ED0-3929-487A-A66B-8E9EEB91E7F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodSystem.Controlls", "FoodSystem.Controlls\FoodSystem.Controlls.csproj", "{0AE82ED0-3929-487A-A66B-8E9EEB91E7F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSystem.Common", "FoodSystem.Common\FoodSystem.Common.csproj", "{166DADED-1904-4896-B633-C3E4596D1890}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0AE82ED0-3929-487A-A66B-8E9EEB91E7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AE82ED0-3929-487A-A66B-8E9EEB91E7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AE82ED0-3929-487A-A66B-8E9EEB91E7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{166DADED-1904-4896-B633-C3E4596D1890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166DADED-1904-4896-B633-C3E4596D1890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166DADED-1904-4896-B633-C3E4596D1890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166DADED-1904-4896-B633-C3E4596D1890}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

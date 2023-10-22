@@ -9,61 +9,145 @@
              x:Name="ROOT"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
-        <Style x:Key="CalendarItem" TargetType="WrapPanel">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Red"/>
-                </Trigger>
-            </Style.Triggers>
+        <Style x:Key="CalendarItemStyle" TargetType="Button">
+            <EventSetter Event="Click" Handler="NextMode"/>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter></ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Blue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style x:Key="CalendarStyle" TargetType="ContentControl">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=(local:Calendar.Mode), RelativeSource={RelativeSource Self}}" Value="Years">
+                <DataTrigger Binding="{Binding Path=(local:Calendar.IsCalendarItemButton), ElementName=ROOT, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" Value="True">
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Border>
-                                    <ItemsControl ItemsSource="{Binding Path=(local:Calendar.Years)}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <Grid>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition/>
-                                                        <ColumnDefinition/>
-                                                        <ColumnDefinition/>
-                                                        <ColumnDefinition/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition/>
-                                                        <RowDefinition/>
-                                                        <RowDefinition/>
-                                                    </Grid.RowDefinitions>
-                                                </Grid>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <WrapPanel Width="auto" Height="auto" Style="{StaticResource CalendarItem}">
-                                                    <TextBlock Text="{Binding Name}"/>
-                                                </WrapPanel>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                        <ItemsControl.ItemContainerStyle>
-                                            <Style>
-                                                <Style.Setters>
-                                                    <Setter Property="Grid.Row" Value="{Binding Row}"></Setter>
-                                                    <Setter Property="Grid.Column" Value="{Binding Col}"></Setter>
-                                                </Style.Setters>
-                                            </Style>
-                                        </ItemsControl.ItemContainerStyle>
-                                    </ItemsControl>
-                                </Border>
+                                <ItemsControl ItemsSource="{Binding Path=(local:Calendar.CalendarItems)}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                            </Grid>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <Button Content="{Binding Name}" Style="{StaticResource CalendarItemStyle}"/>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemContainerStyle>
+                                        <Style>
+                                            <Style.Setters>
+                                                <Setter Property="Grid.Row" Value="{Binding Row}"></Setter>
+                                                <Setter Property="Grid.Column" Value="{Binding Col}"></Setter>
+                                            </Style.Setters>
+                                        </Style>
+                                    </ItemsControl.ItemContainerStyle>
+                                </ItemsControl>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(local:Calendar.IsCalendarItemButton), ElementName=ROOT, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <ItemsControl ItemsSource="{Binding Path=(local:Calendar.CalendarItems)}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                            </Grid>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <Button Content="{Binding Name}"/>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemContainerStyle>
+                                        <Style>
+                                            <Style.Setters>
+                                                <Setter Property="Grid.Row" Value="{Binding Row}"></Setter>
+                                                <Setter Property="Grid.Column" Value="{Binding Col}"></Setter>
+                                            </Style.Setters>
+                                        </Style>
+                                    </ItemsControl.ItemContainerStyle>
+                                </ItemsControl>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="NavigationStyle" TargetType="ContentControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="{Binding Path=(local:Calendar.SelectedText), ElementName=ROOT, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" Click="PrevMode"></Button>
+                            <Button Grid.Column="1" Content="&#708;" Click="PrevPeriod"/>
+                            <Button Grid.Column="2" Content="&#709;" Click="NextPeriod"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
-    <ContentControl Style="{StaticResource CalendarStyle}"></ContentControl>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <ContentControl Style="{StaticResource NavigationStyle}" Grid.Row="0"></ContentControl>
+        <ContentControl Style="{StaticResource CalendarStyle}" Grid.Row="1"></ContentControl>
+    </Grid>
 </UserControl>
